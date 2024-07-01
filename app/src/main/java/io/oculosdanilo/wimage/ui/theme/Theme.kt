@@ -14,9 +14,7 @@ fun WimageTheme(
 ) {
   val context = LocalContext.current
   MaterialTheme(
-    colorScheme = if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(
-      context
-    ),
+    colorScheme = if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context),
     typography = Typography,
     content = content
   )
