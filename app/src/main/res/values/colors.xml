@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="ic_background">@android:color/system_accent1_100</color>
-  <color name="ic_foreground">@android:color/system_neutral1_800</color>
+  <color name="ic_background">#ff62459A</color>
+  <color name="ic_foreground">@android:color/white</color>
   
-  <color name="splash_background">@android:color/system_neutral1_10</color>
-  <color name="splash_foreground">@android:color/system_neutral1_900</color>
+  <color name="splash_background">#ffFEF7FF</color>
+  <color name="splash_foreground">#ff1D1B20</color>
 </resources>
