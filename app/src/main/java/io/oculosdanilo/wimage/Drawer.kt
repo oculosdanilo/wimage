@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
@@ -47,6 +48,17 @@ fun Drawer() {
     Header(ctx)
     
     Spacer(Modifier.height(75.dp))
+    
+    NavigationDrawerItem(
+      label = { Text(stringResource(R.string.home)) }, icon = {
+        Icon(
+          painter =,
+          contentDescription =
+        )
+      }, selected = true, onClick = { /*TODO*/ })
+    NavigationDrawerItem(label = { Text(stringResource(R.string.config)) }, selected = false, onClick = { /*TODO*/ })
+    
+    HorizontalDivider()
     
     NavigationDrawerItem(
       label = { Text(stringResource(R.string.github_rep)) },
@@ -89,7 +101,7 @@ private fun Header(ctx: Context) {
         .offset(25.dp, 50.dp)
         .size(100.dp)
         .clip(CircleShape)
-        .border(2.dp, Color.White, CircleShape)
+        .border(1.dp, Color.White, CircleShape)
     )
   }
 }

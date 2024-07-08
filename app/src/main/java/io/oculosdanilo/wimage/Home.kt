@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -40,6 +42,10 @@ fun Home(drawerState: DrawerState, scope: CoroutineScope) {
       )
     }
   ) { padding ->
-    Box(modifier = Modifier.padding(padding))
+    Box(modifier = Modifier.padding(padding)) {
+      Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.textButtonColors()) {
+        Text("Danilo")
+      }
+    }
   }
 }
