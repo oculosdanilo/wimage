@@ -1,15 +1,16 @@
 package io.oculosdanilo.wimage
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
@@ -34,8 +35,24 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
     
+    val systemTheme = when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+      Configuration.UI_MODE_NIGHT_YES -> {
+        true
+      }
+      
+      Configuration.UI_MODE_NIGHT_NO -> {
+        false
+      }
+      
+      else -> {
+        false
+      }
+    }
+    
     setContent {
-      Wimage()
+      val tema = verTema(applicationContext, systemTheme).collectAsState(initial = systemTheme)
+      
+      Wimage(tema.value)
     }
   }
 }
@@ -48,7 +65,7 @@ object ConfigRoute
 
 @Composable
 fun Wimage(
-  isDark: Boolean = isSystemInDarkTheme(),
+  isDark: Boolean,
   ctx: Context = LocalContext.current
 ) {
   /* drawer */
@@ -60,12 +77,12 @@ fun Wimage(
   
   var routeAtual: String by rememberSaveable { mutableStateOf(HomeRoute.toString()) }
   
-  var dark: Boolean by rememberSaveable {
+  /*var dark: Boolean by rememberSaveable {
     val darkmode = verTema(ctx) ?: isDark;
     mutableStateOf(darkmode)
-  }
+  }*/
   
-  WimageTheme(darkTheme = dark) {
+  WimageTheme(darkTheme = isDark) {
     ModalNavigationDrawer(
       drawerContent = {
         Drawer(
