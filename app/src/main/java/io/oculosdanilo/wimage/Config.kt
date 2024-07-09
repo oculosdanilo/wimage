@@ -1,11 +1,9 @@
 package io.oculosdanilo.wimage
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -21,11 +19,11 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(drawerState: DrawerState, scope: CoroutineScope) {
+fun Config(drawerState: DrawerState, scope: CoroutineScope) {
   Scaffold(
     topBar = {
       TopAppBar(
-        title = { Text(text = stringResource(R.string.app_name)) },
+        title = { Text(text = stringResource(R.string.config)) },
         navigationIcon = {
           IconButton(
             onClick = { scope.launch { drawerState.apply { open() } } }
@@ -34,10 +32,8 @@ fun Home(drawerState: DrawerState, scope: CoroutineScope) {
       )
     }
   ) { padding ->
-    Box(modifier = Modifier.padding(padding)) {
-      Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.textButtonColors()) {
-        Text("Danilo")
-      }
+    Column(modifier = Modifier.padding(padding)) {
+    
     }
   }
 }

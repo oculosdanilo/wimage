@@ -1,6 +1,9 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.jetbrains.kotlin.android)
+  
+  kotlin("plugin.serialization")
+  alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -53,6 +56,7 @@ dependencies {
   
   implementation(libs.androidx.core.splashscreen)
   implementation(libs.fontawesomecompose)
+  implementation(libs.androidx.navigation.compose)
   
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -62,6 +66,11 @@ dependencies {
   implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.ui.tooling.preview)
   implementation(libs.androidx.material3)
+  implementation(libs.androidx.navigation.ui.ktx)
+  implementation(libs.androidx.navigation.fragment.ktx)
+  implementation(libs.kotlinx.serialization.json)
+  implementation(libs.androidx.material.icons.extended)
+  implementation(libs.androidx.datastore.preferences)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)

@@ -35,38 +35,60 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.guru.fontawesomecomposelib.FaIcon
 import com.guru.fontawesomecomposelib.FaIcons
+import io.oculosdanilo.wimage.composable_icons.rememberHome
+import io.oculosdanilo.wimage.composable_icons.rememberHomeFilled
+import io.oculosdanilo.wimage.composable_icons.rememberSettings
+import io.oculosdanilo.wimage.composable_icons.rememberSettingsFilled
 
 @Composable
-fun Drawer() {
+fun Drawer(onNavegarPraHome: () -> Unit, onNavegarPraConfig: () -> Unit, routeAtual: String) {
   val ctx = LocalContext.current
   val intentRep = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/oculosdanilo/wimage"))
   val intentDanilo = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/oculosdanilo"))
   
-  ModalDrawerSheet(
-    windowInsets = WindowInsets(0, 0, 0, 0)
-  ) {
+  ModalDrawerSheet(windowInsets = WindowInsets(0, 0, 0, 0)) {
     Header(ctx)
     
     Spacer(Modifier.height(75.dp))
     
     NavigationDrawerItem(
-      label = { Text(stringResource(R.string.home)) }, icon = {
-        Icon(
-          painter =,
-          contentDescription =
-        )
-      }, selected = true, onClick = { /*TODO*/ })
-    NavigationDrawerItem(label = { Text(stringResource(R.string.config)) }, selected = false, onClick = { /*TODO*/ })
-    
-    HorizontalDivider()
-    
-    NavigationDrawerItem(
-      label = { Text(stringResource(R.string.github_rep)) },
+      label = { Text(stringResource(R.string.home)) },
       icon = {
         Icon(
-          painterResource(R.drawable.ic_github_repo),
-          stringResource(R.string.github_rep),
+          if (routeAtual == "$HomeRoute") {
+            rememberHomeFilled()
+          } else {
+            rememberHome()
+          },
+          contentDescription = stringResource(R.string.home)
         )
+      },
+      selected = routeAtual == "$HomeRoute",
+      onClick = onNavegarPraHome,
+      modifier = Modifier.padding(horizontal = 12.dp)
+    )
+    NavigationDrawerItem(
+      label = { Text(stringResource(R.string.config)) },
+      icon = {
+        Icon(
+          if (routeAtual == "$ConfigRoute") {
+            rememberSettingsFilled()
+          } else {
+            rememberSettings()
+          },
+          contentDescription = stringResource(R.string.config)
+        )
+      },
+      selected = routeAtual == "$ConfigRoute",
+      onClick = onNavegarPraConfig,
+      modifier = Modifier.padding(horizontal = 12.dp)
+    )
+    
+    HorizontalDivider(Modifier.padding(horizontal = 28.dp, vertical = 8.dp))
+    
+    NavigationDrawerItem(
+      label = { Text(stringResource(R.string.github_rep)) }, icon = {
+        Icon(painterResource(R.drawable.ic_github_repo), stringResource(R.string.github_rep))
       },
       selected = false,
       onClick = { ctx.startActivity(intentRep) },
@@ -74,7 +96,7 @@ fun Drawer() {
     )
     NavigationDrawerItem(
       label = { Text(stringResource(R.string.github_danilo)) },
-      icon = { FaIcon(FaIcons.Github, tint = MaterialTheme.colorScheme.onSurface) },
+      icon = { FaIcon(FaIcons.Github, tint = MaterialTheme.colorScheme.onSurfaceVariant) },
       selected = false,
       onClick = { ctx.startActivity(intentDanilo) },
       modifier = Modifier.padding(horizontal = 12.dp)
@@ -95,7 +117,8 @@ private fun Header(ctx: Context) {
       contentScale = ContentScale.Crop
     )
     Image(
-      painterResource(R.drawable.danilo), "Danilo",
+      painterResource(R.drawable.danilo),
+      "Danilo",
       Modifier
         .align(Alignment.BottomStart)
         .offset(25.dp, 50.dp)
