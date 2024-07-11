@@ -4,4 +4,6 @@
   <string name="github_danilo">Meu Github</string>
   <string name="home">Início</string>
   <string name="config">Configurações</string>
+  <string name="darkmode">Modo escuro</string>
+  <string name="m3color">Cor do dispositivo M3</string>
 </resources>
