@@ -30,7 +30,6 @@ fun WimageTheme(
   
   MaterialTheme(
     colorScheme = cores,
-    typography = Typography,
     content = content
   )
   
