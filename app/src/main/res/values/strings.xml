@@ -7,4 +7,5 @@
   <string name="config">Settings</string>
   <string name="darkmode">Dark mode</string>
   <string name="m3color">M3 device color</string>
+  <string name="copyright">All rights reserved</string>
 </resources>

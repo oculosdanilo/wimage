@@ -6,10 +6,12 @@ import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,14 +26,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.guru.fontawesomecomposelib.FaIcon
 import com.guru.fontawesomecomposelib.FaIcons
@@ -39,12 +44,15 @@ import io.oculosdanilo.wimage.composable_icons.rememberHome
 import io.oculosdanilo.wimage.composable_icons.rememberHomeFilled
 import io.oculosdanilo.wimage.composable_icons.rememberSettings
 import io.oculosdanilo.wimage.composable_icons.rememberSettingsFilled
+import java.time.Year
 
 @Composable
 fun Drawer(onNavegarPraHome: () -> Unit, onNavegarPraConfig: () -> Unit, routeAtual: String) {
   val ctx = LocalContext.current
   val intentRep = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/oculosdanilo/wimage"))
   val intentDanilo = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/oculosdanilo"))
+  val navigationBarHeight: Dp =
+    (WindowInsets.navigationBars.getBottom(LocalDensity.current) / LocalDensity.current.density).dp
   
   ModalDrawerSheet(windowInsets = WindowInsets(0, 0, 0, 0)) {
     Header(ctx)
@@ -101,6 +109,21 @@ fun Drawer(onNavegarPraHome: () -> Unit, onNavegarPraConfig: () -> Unit, routeAt
       onClick = { ctx.startActivity(intentDanilo) },
       modifier = Modifier.padding(horizontal = 12.dp)
     )
+    
+    Spacer(Modifier.weight(1.0f))
+    
+    Column(Modifier.padding(horizontal = 28.dp, vertical = navigationBarHeight + 10.dp)) {
+      Text(
+        "© ${Year.now()} oculosdanilo",
+        Modifier.alpha(0.5f),
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+      )
+      Text(
+        stringResource(R.string.copyright),
+        Modifier.alpha(0.5f),
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+      )
+    }
   }
 }
 
