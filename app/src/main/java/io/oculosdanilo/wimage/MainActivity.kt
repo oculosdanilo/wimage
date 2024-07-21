@@ -29,14 +29,13 @@ import io.oculosdanilo.wimage.ui.theme.TemaViewModel
 import io.oculosdanilo.wimage.ui.theme.WimageTheme
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {
   private val temaViewModel: TemaViewModel by viewModels()
   private val myViewModel: MYViewModel by viewModels()
-  private val carregouViewModel: CarregouViewModel<Any?> by viewModels()
+  private val carregouViewModel: CarregouViewModel by viewModels()
   private lateinit var dataStoreUtil: DataStoreUtil
   
   @SuppressLint("CoroutineCreationDuringComposition")
@@ -62,12 +61,15 @@ class MainActivity : ComponentActivity() {
     
     setContent {
       val tema by dataStoreUtil.pegarTema(systemTheme).collectAsState(initial = systemTheme)
+      temaViewModel.setDarkModeAtivado(tema)
+      val my by dataStoreUtil.pegarMY().collectAsState(initial = false)
+      myViewModel.setMYAtivado(my)
       val scope = rememberCoroutineScope()
       scope.launch {
-        carregouViewModel.setCarregou()
+        carregouViewModel.setCarregou(dataStoreUtil)
       }
       
-      Wimage(tema, myViewModel, temaViewModel)
+      Wimage(tema, my, myViewModel, temaViewModel)
     }
     
     val conteudo: View = findViewById(android.R.id.content)
@@ -99,6 +101,7 @@ object ConfigRoute
 @Composable
 fun Wimage(
   isDark: Boolean,
+  isDeviceMY: Boolean,
   myViewModel: MYViewModel,
   temaViewModel: TemaViewModel
 ) {
@@ -110,7 +113,7 @@ fun Wimage(
   val navController = rememberNavController()
   var routeAtual: String by rememberSaveable { mutableStateOf(HomeRoute.toString()) }
   
-  WimageTheme(darkTheme = isDark) {
+  WimageTheme(darkTheme = isDark, deviceColors = isDeviceMY) {
     ModalNavigationDrawer(
       drawerContent = {
         Drawer(
@@ -153,12 +156,12 @@ fun Wimage(
   }
 }
 
-class CarregouViewModel<CoroutineScope> : ViewModel() {
+class CarregouViewModel : ViewModel() {
   var carregou = mutableStateOf(false)
     private set
   
-  suspend fun setCarregou() {
-    delay(500L)
+  suspend fun setCarregou(dataStoreUtil: DataStoreUtil) {
+    dataStoreUtil.init()
     carregou.value = true
   }
 }
