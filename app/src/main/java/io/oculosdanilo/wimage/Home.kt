@@ -52,8 +52,6 @@ fun Home(drawerState: DrawerState, scope: CoroutineScope, ctx: Context = LocalCo
     if (isPermitido) {
       val wallpaperManager = WallpaperManager.getInstance(ctx)
       wallpaper.value = wallpaperManager.drawable
-    } else {
-    
     }
   }
   
@@ -70,7 +68,15 @@ fun Home(drawerState: DrawerState, scope: CoroutineScope, ctx: Context = LocalCo
     }
   ) { padding ->
     Box(modifier = Modifier.padding(padding)) {
-      Button(onClick = { /*TODO*/ }, colors = ButtonDefaults.textButtonColors()) {
+      when {
+        permissaoDialog.value -> DialogoPermissao(onCancelar = {
+          permissaoDialog.value = false
+        }, onConfirmar = {})
+      }
+      
+      Button(onClick = {
+        permissaoDialog.value = true
+      }, colors = ButtonDefaults.textButtonColors()) {
         Text("Danilo")
       }
     }

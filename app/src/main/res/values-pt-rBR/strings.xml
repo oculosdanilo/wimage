@@ -7,4 +7,12 @@
   <string name="darkmode">Modo escuro</string>
   <string name="m3color">Cor do dispositivo M3</string>
   <string name="copyright">Todos os direitos reservados</string>
+  <string name="permDialogTitle">Pare aí mesmo!</string>
+  <string name="permDialogConteudo">Para funcionar corretamente, o Wimage precisa dessas permissões:</string>
+  <string name="permDialogPerm1Title">Galeria</string>
+  <string name="permDialogPerm1Desc">Para acesso às fotos do seu celular</string>
+  <string name="permDialogPerm2Title">Acesso a todos os arquivos (Opcional)</string>
+  <string name="permDialogPerm2Desc">Para acesso ao seu papel de parede para fins cosméticos</string>
+  <string name="permDialogOK">OK</string>
+  <string name="permDialogFechar">Fechar</string>
 </resources>

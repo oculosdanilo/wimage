@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.1"
+agp = "8.5.2"
 coreSplashscreen = "1.0.1"
 fontawesomecompose = "1.0.0"
 kotlin = "2.0.0"
@@ -11,9 +11,9 @@ lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.06.00"
 kotlinxSerializationJson = "1.7.1"
-materialIconsExtended = "1.7.0-beta06"
+materialIconsExtended = "1.7.0-beta07"
 datastorePreferences = "1.1.1"
-navigation = "2.8.0-beta06"
+navigation = "2.8.0-beta07"
 fragment = "1.8.2"
 accompanistPermissions = "0.35.1-alpha"
 

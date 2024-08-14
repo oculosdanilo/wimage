@@ -9,4 +9,12 @@
   <string name="darkmode">Dark mode</string>
   <string name="m3color">M3 device color</string>
   <string name="copyright">All rights reserved</string>
+  <string name="permDialogTitle">Stop right there!</string>
+  <string name="permDialogConteudo">To function correctly, Wimage need these permissions:</string>
+  <string name="permDialogPerm1Title">Gallery</string>
+  <string name="permDialogPerm1Desc">For access to the photos on your phone</string>
+  <string name="permDialogPerm2Title">Manage all the files (optional)</string>
+  <string name="permDialogPerm2Desc">For wallpaper image access to cosmetic purposes</string>
+  <string name="permDialogOK">OK</string>
+  <string name="permDialogFechar">Close</string>
 </resources>
