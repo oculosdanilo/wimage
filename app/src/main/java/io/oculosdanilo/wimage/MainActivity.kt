@@ -149,7 +149,7 @@ fun Wimage(
       drawerState = drawerState
     ) {
       NavHost(navController = navController, startDestination = HomeRoute) {
-        composable<HomeRoute> { Home(drawerState, scope) }
+        composable<HomeRoute> { Home(drawerState, scope, isDark, isDeviceMY) }
         composable<ConfigRoute> { Config(drawerState, scope, temaViewModel, myViewModel) }
       }
     }

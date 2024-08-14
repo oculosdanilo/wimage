@@ -17,4 +17,7 @@
   <string name="permDialogPerm2Desc">For wallpaper image access to cosmetic purposes</string>
   <string name="permDialogOK">OK</string>
   <string name="permDialogFechar">Close</string>
+  <string name="permNegada">Failed to get permissions!</string>
+  <string name="btnWidget">Place widget</string>
+  <string name="btnSelect">Select image</string>
 </resources>

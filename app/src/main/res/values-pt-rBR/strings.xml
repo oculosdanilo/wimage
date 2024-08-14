@@ -15,4 +15,7 @@
   <string name="permDialogPerm2Desc">Para acesso ao seu papel de parede para fins cosméticos</string>
   <string name="permDialogOK">OK</string>
   <string name="permDialogFechar">Fechar</string>
+  <string name="permNegada">Falha em obter permissões!</string>
+  <string name="btnWidget">Inserir widget</string>
+  <string name="btnSelect">Selecionar imagem</string>
 </resources>

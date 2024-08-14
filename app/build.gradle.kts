@@ -8,7 +8,7 @@ plugins {
 
 android {
   namespace = "io.oculosdanilo.wimage"
-  compileSdk = 34
+  compileSdk = 35
   
   defaultConfig {
     applicationId = "io.oculosdanilo.wimage"
@@ -79,6 +79,7 @@ dependencies {
   implementation(libs.androidx.datastore.preferences)
   implementation(libs.androidx.fragment)
   implementation(libs.accompanist.permissions)
+  implementation(libs.accompanist.drawablepainter)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
