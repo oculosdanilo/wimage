@@ -18,4 +18,8 @@
   <string name="permNegada">Falha em obter permissões!</string>
   <string name="btnWidget">Inserir widget</string>
   <string name="btnSelect">Selecionar imagem</string>
+  <string name="appwidget_text">EXEMPLO</string>
+  <string name="configure">Configurações</string>
+  <string name="add_widget">Adicionar widget</string>
+  <string name="app_widget_description">Widget de imagem</string>
 </resources>
