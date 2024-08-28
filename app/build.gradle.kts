@@ -33,11 +33,11 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_22
-    targetCompatibility = JavaVersion.VERSION_22
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
   kotlinOptions {
-    jvmTarget = "22"
+    jvmTarget = "17"
   }
   buildFeatures {
     compose = true
@@ -81,6 +81,7 @@ dependencies {
   implementation(libs.androidx.fragment)
   implementation(libs.accompanist.permissions)
   implementation(libs.accompanist.drawablepainter)
+  implementation(libs.material)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)

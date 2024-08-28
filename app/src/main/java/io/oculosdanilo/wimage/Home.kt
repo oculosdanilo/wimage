@@ -189,8 +189,7 @@ fun Home(
           Spacer(Modifier.width(16.dp))
           FilledTonalButton(
             onClick = {
-              val toast = Toast.makeText(ctx, wallpaper.value.toString(), Toast.LENGTH_LONG)
-              toast.show()
+              
             },
             Modifier
               .fillMaxWidth()

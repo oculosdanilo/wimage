@@ -34,10 +34,8 @@ class Imagem : AppWidgetProvider() {
 }
 
 internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
-  val widgetText = loadTitlePref(context, appWidgetId)
   // Construct the RemoteViews object
   val views = RemoteViews(context.packageName, R.layout.imagem)
-  views.setTextViewText(R.id.appwidget_text, widgetText)
   
   // Instruct the widget manager to update the widget
   appWidgetManager.updateAppWidget(appWidgetId, views)

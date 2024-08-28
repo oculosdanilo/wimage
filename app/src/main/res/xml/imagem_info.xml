@@ -4,12 +4,11 @@
   android:description="@string/app_widget_description"
   android:initialKeyguardLayout="@layout/imagem"
   android:initialLayout="@layout/imagem"
-  android:minWidth="110dp"
-  android:minHeight="110dp"
-  android:previewImage="@drawable/example_appwidget_preview"
+  android:previewImage="@drawable/gato_preview_widget"
   android:previewLayout="@layout/imagem"
   android:resizeMode="horizontal|vertical"
   android:targetCellWidth="2"
   android:targetCellHeight="2"
   android:updatePeriodMillis="86400000"
-  android:widgetCategory="home_screen" />
+  android:widgetCategory="home_screen"
+  android:widgetFeatures="reconfigurable" />
